@@ -1,0 +1,45 @@
+{% extends "master.html" %}
+
+{% block pagina_titulo %}
+	<h1>Empresas</h1>
+{% endblock %}
+
+{% block contenido %}
+
+	{% if not request.user.is_authenticated %}
+		<h1> Favor de logearse </h1>
+
+	{% else %}
+	
+		<h1> Hola {{ request.user }}</h1>
+
+	{% endif %}
+
+	<p>
+		<a href="/empresas/nuevo/">Nueva Empresa</a>
+	</p>
+	<p>
+		<ul>
+			{% for empresa in empresas %}
+				<li>
+					<a href="{% url 'detalle' id=empresa.pk %}">
+						{{ empresa.nombre }} 		
+					</a>
+					- 
+					{{ empresa.descripcion }}
+					-
+					<a href="{% url 'eliminar' id=empresa.pk %}">
+						Eliminar	
+					</a> - 
+					<a href="{% url 'editar' id=empresa.pk %}">
+						Editar	
+					</a>					
+				</li>
+			{% empty %}
+
+				<h1> No se encontraron empresas</h1>
+			{% endfor %}
+		</ul>
+	</p>	
+
+{% endblock %}

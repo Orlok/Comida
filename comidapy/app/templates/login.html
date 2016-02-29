@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Login - Comelon</title>
+</head>
+<body>
+	<h1>
+		Login del Comelon
+	</h1>
+
+    <form method="POST">
+	
+		{% csrf_token %}
+
+		{{ formulario.as_p }}
+
+		<input type="submit" value="Ingresar">
+
+    </form>
+
+    {% if formulario.errors %}
+    	<h1> {{ formulario.errors }} </h1>
+    {% endif %}
+
+</body>
+</html>

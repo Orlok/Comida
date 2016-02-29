@@ -1,0 +1,9 @@
+{% extends "master.html" %}
+
+{% block pagina_titulo %}
+	<h1>Detalle de la empresa : {{ empresa.nombre }} </h1>
+{% endblock %}
+
+{% block contenido %}
+	<h2>{{ empresa.descripcion }}</h2>
+{% endblock %}

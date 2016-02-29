@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+
+{% block pagina_titulo %}
+	<h1>Editar Empresa</h1>
+{% endblock %}
+
+{% block contenido %}
+	
+	<form method="POST">
+		{% csrf_token %}
+		{{ formulario.as_p }}
+		<button type="submit">Editar</button>
+	</form>
+
+{% endblock %}
